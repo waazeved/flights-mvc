@@ -1,14 +1,16 @@
 <div ng-init="init()">
 
-	<h1 class="title">Flight List</h1>
+	<div class="row">
+		<div class="col-md-6">
+			<h1 class="title">Flight List</h1>
+		</div>
+	</div>
 
-	<div class="row" style="padding-top: 15px;">
+	<div class="row" style="padding-top: 5px;">
 
 		<div class="col-md-12">
 				<input type="text" class="form-control"
-					placeholder="Pesquisar"
-					ng-model=""
-					ng-keyup=""
+					placeholder="Search"
 					style="-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;"/>
 		</div>
 
@@ -16,10 +18,12 @@
 
 	<div class="row"
 		style="text-align:center;margin-top: 10px; margin-bottom: 10px; margin-left:auto; margin-right:auto'">
-		<button type="button" id="btn-save" class="btn  btn-default"
-			ng-click="" ng-show="">
-			Load More
-		</button>
+		<div class="col-md-12">
+			<button type="button" id="btn-save" class="btn  btn-default"
+				>
+				Load More
+			</button>
+		</div>
 	</div>
 
 </div>

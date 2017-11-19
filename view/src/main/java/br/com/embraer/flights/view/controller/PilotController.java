@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.embraer.flights.business.dto.PilotDto;
 import br.com.embraer.flights.business.exception.FlightException;
-import br.com.embraer.flights.business.exception.NameIsAlreadyInUseException;
 import br.com.embraer.flights.business.service.IPilotService;
 import br.com.embraer.flights.view.controller.response.Response;
 
@@ -27,7 +26,7 @@ public class PilotController {
 			 try {
 				 pilotService.save(pilotDto);
 				return Response.success();
-			} catch (NameIsAlreadyInUseException | FlightException e) {
+			} catch (FlightException e) {
 				return Response.exception(e);
 			}
 	}
