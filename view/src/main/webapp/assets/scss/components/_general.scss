@@ -1,0 +1,492 @@
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/pt-sans-v8-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('PT Sans'), local('PTSans-Regular'),
+       url('../fonts/pt-sans-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/pt-sans-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/pt-sans-v8-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/pt-sans-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/pt-sans-v8-latin-regular.svg#PTSans') format('svg'); /* Legacy iOS */
+}
+/* pt-sans-700 - latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/pt-sans-v8-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('PT Sans Bold'), local('PTSans-Bold'),
+       url('../../fonts/pt-sans-v8-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/pt-sans-v8-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/pt-sans-v8-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/pt-sans-v8-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/pt-sans-v8-latin-700.svg#PTSans') format('svg'); /* Legacy iOS */
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+    @include box-sizing();
+}
+
+html,
+body {
+	min-height: 100%;
+	height: 100%;
+}
+
+$color: #1D6294;
+
+body {
+	font-family: $font;
+	font-size: 16px;
+	background-color:#EEEEEE;
+	min-width: 320px;
+    color: #4C4C4C;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased
+}
+
+.background-svg{
+  bottom: 0;
+  direction: ltr;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  svg {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+}
+
+main {
+  padding: 84px 0 0;
+	min-height: 96vh;
+
+    @media (min-width: $screen-desktop-min) {
+    	padding: 76px 12px 0 244px;
+    }
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	transition: background-color ease 0.2s, color ease 0.2s, border ease 0.2s;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+label {
+    font-size: 14px;
+	font-weight: 400;
+}
+
+
+td {
+	position: relative;
+}
+
+.title {
+	font-size: 24px;
+	color: #666;
+	font-weight: bold;
+	padding-bottom: 20px;
+	margin: 0;
+
+    @media (min-width: $screen-tablet-min) {
+		padding: 10px 0 20px;
+		margin: 0;
+	}
+}
+
+
+
+.help-block {
+	font-size: 13px;
+	color:  #AEAEAE;
+}
+
+a {
+    cursor: pointer;
+}
+
+.input-sm {
+	height: 28px;
+}
+
+@media (min-width: 768px) {
+    .temporary-list {
+        .dl-horizontal {
+            dt {
+                width: 84px;
+            }
+
+            dd {
+        	    margin-left: 110px;
+        	}
+
+            & + .dl-horizontal{
+            	padding-left: 24px;
+            }
+    	}
+    }
+}
+
+.input-date .text-center .btn {
+      border: none;
+}
+
+.container-fluid {
+	position: relative;
+}
+
+.input-group-btn {
+    i {
+        padding: 0;
+    }
+}
+
+
+.input-date {
+    .text-center .btn {
+        font-size: 14px;
+        font-weight: normal;
+        padding: 8px 12px;
+        border-radius: 0;
+        border: 1px solid #ebeceb;
+        border-left: none;
+        border-top: none;
+    }
+
+    th.text-center {
+    	text-transform: uppercase;
+    	padding: 6px 0;
+    }
+
+    table:focus {
+    	outline: none;
+    }
+
+    .dropdown-menu {
+    	padding: 0 0 16px;
+    }
+
+    th .btn {
+    	border: none !important;
+    	padding: 8px 14px;
+    }
+
+    .btn-group.pull-left,
+    .btn-success.pull-right {
+    	margin: 6px 6px 0;
+    }
+
+}
+
+.table-edit {
+	position: absolute;
+    top: 0;
+    background: #fafafa;
+    padding: 16px 24px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+	  min-width: 250px;
+    z-index: 10;
+}
+
+
+.input-group-btn .btn-sm {
+	line-height: 14px;
+}
+
+
+.form-group label {
+	text-transform: capitalize;
+}
+
+.form-title {
+	text-transform: capitalize;
+}
+
+
+textarea {
+	resize: vertical;
+}
+
+
+
+.modal-progress-step .checkbox-inline {
+	margin: 15px 0 24px;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.circle-info {
+	border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    left: 18px;
+    background-color: #ffd11a;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.download-file {
+    color: #337ab7;
+    padding-top: 6px;
+    display: block;
+
+    i {
+        padding-right: 4px;
+    }
+}
+
+
+.red {
+    color: red;
+}
+
+.resize {
+    resize: none;
+}
+
+.tooltip-inner {
+    white-space: nowrap;
+}
+
+//Login screen
+.main {
+  .full-height{
+    min-height: calc(100vh);
+  }
+  
+  .login-content{
+    transform: translateY(50%);
+  }
+  
+  .login-logo{
+    background-color: #f8971a;
+  }
+  
+  .translate-flags{
+    position: absolute;
+  }
+  
+  .login-form{
+    padding: 0 15px;
+  }
+
+	.img-flag-login{
+		cursor: pointer;
+		width: 30px;
+		margin: 10px 5px;
+	}
+  
+	.logo-mobile {
+		margin: 18px 0;
+    p:last-child{
+      margin: 32px 0 0px 0;
+    }
+	}
+  
+  .form-control {
+    height: 50px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+  
+  .form-box{
+    .alert-danger{
+      background-color: #f2dede;
+      border-color: #ebccd1;
+      color: #a94442;
+      margin: 8px 0;
+    }
+    .form-group {
+      margin-bottom: 8px;
+    }
+  }
+  
+	input[type="submit"] {
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		background-color: $blue-button;
+		border: 0px solid #fff;
+		border-radius: 3px;
+		color: #eee;
+		font-weight: bold;
+		transition: background-color 1s, color .5s;
+		text-transform: uppercase;
+		&:hover {
+			background-color: darken($blue-button, 20%);
+			border-color: transparent;
+			color: #fff;
+		}
+	}
+  
+  .forget-password{
+    padding: 0;
+  }
+	.form {
+		a {
+			color: #fff;
+			font-weight: bolder;
+		}
+	}
+}
+
+.register {
+	input[type="submit"] {
+		margin: 18px 0;
+	}
+	.btn-default.active {
+		background-color: #3F51B5;
+		border-color: #364596;
+		color: #fff;
+	}
+	input[type="radio"]{
+		height: 5px;
+	}
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .main {
+    .logo-mobile{
+      display: none;
+    }
+    .full-height{
+      height: calc(100vh);
+    }
+    .login-content{
+      position: relative;
+      top: 50%;
+      transform: translateY(-75%);
+    }
+    .form-box{
+      box-shadow: 1px 0px 30px 1px rgba(0, 0, 0, 0.53);
+      z-index: 2;
+      .login-form{
+        position: relative;
+        top: 50%;
+        transform: translateY(-100%);
+        h2,p{
+          margin-bottom: 26px;
+        }
+        .alert-danger{
+          margin: 8px 0;
+          width: 50%;
+        }
+      }
+    }
+	}
+}
+
+//Style used for change password screen
+#confirm-password{
+	display: none;
+	
+	.form-control{
+		margin-bottom: 18px;
+	}
+}
+
+.password-rules { 
+	margin:18px 0 0 0; 
+	.password-rules-body {
+		.valid {
+			color: #4caf50;
+		}
+		.invalid {
+			color: #f44336;
+		}
+		.fa-times,
+		.fa-check {
+			display: none;
+		}
+	}
+}
+
+//Home style
+.home-screen {
+	.company-logo {
+		background-image: url(../img/logo.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 300px;
+		margin-top: 18px;
+	}
+	.card{
+		//box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+		@include transition(box-shadow, .5s);
+		p {
+			color: #fff;
+			font-weight: bolder;
+		}
+	}
+	.green-card{
+		background-color: #4caf50;
+
+	}
+	.orange-card{
+		background-color: #ff9800;
+		&:hover {
+			background-color: darken(#ff9800, 6%) ;
+		}
+	}
+	.blue-card{
+		background-color: #2196f3;
+		&:hover {
+			background-color: darken(#2196f3, 6%) ;
+		}
+	}
+	.red-card{
+		background-color: #f44336;
+		&:hover {
+			background-color: darken(#f44336, 6%) ;
+		}
+	}
+	.red-card,.blue-card,.green-card,.orange-card{
+		&:hover{
+			box-shadow: 1px 5px 15px 0px rgba(0, 0, 0, 0.5); 
+		}
+	}
+	p i {
+		font-size: 2em;
+	}
+	
+}
+
+.forgot-password{
+	h2 { 
+		color: #000;
+		font-weight: bolder;
+	}
+	label {
+		color : #000;
+	}
+}

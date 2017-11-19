@@ -1,0 +1,128 @@
+.pt-br-flag, .eua-flag
+{ display: inline-block; background: url('../img/flags.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+ 
+.pt-br-flag { background-position: -0px -0px; width: 26px; height: 18px; vertical-align: middle;}
+.eua-flag { background-position: -0px -18px; width: 26px; height: 18px;  vertical-align: middle;}
+
+.header {
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+	background-color: $background;
+	height: $header-height;
+	@include user-select();
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+
+	.header-logo {
+		font-size: 30px;
+    font-weight: bold;
+		color: $main-color;
+		display: block;
+		float: left;
+		transition: transform ease 0.2s, width 0.25s linear;
+		padding: 10px 0 0 64px;
+		background: url(../img/logo-emb.png) no-repeat 18px 15px;
+
+		.header-logo-name {
+			transition: all 0.2s ease;
+		}
+
+		.header-logo-description {
+			font-size: 13px;
+			font-weight: normal;
+			padding-left: 16px;
+			width: 120px;
+			line-height: 12px;
+			display: inline-block;
+			position: relative;
+			transition: all 0.2s ease;
+
+			&:before {
+				width: 1px;
+				background-color: #FFF;
+				content: "";
+				height: 100%;
+				position: absolute;
+				left: 4px;
+			}
+		}
+	}
+
+	.navbar-right {
+		padding-right: 25px;
+
+		.dropdown-toggle-language {
+			padding: 18px;
+			height: $header-height;
+
+			&:hover {
+				border-bottom: solid 4px $main-color;
+
+				color: #333
+			}
+		}
+
+		.dropdown-menu {
+			border: none;
+
+			a {
+				font-size: 16px;
+				color: #4C4C4C;
+				padding: 6px 20px;
+
+				img {
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+
+	.dropdown.open {
+		.header-icons-action {
+			background-color: #195580;
+		}
+		.dropdown-toggle {
+			color: #4C4C4C;
+			background-color: #FFF;
+		}
+	}
+
+	.header-icons {
+		float: right;
+
+		@media (min-width: $screen-tablet-min) {
+			padding-right: 16px;
+		}
+
+		.navbar-nav {
+			display: none;
+
+			@media (min-width: $screen-tablet-min) {
+				display: block;
+			}
+		}
+
+		.header-icons-action {
+			display: none;
+
+			@media (min-width: $screen-tablet-min) {
+				  font-size: 20px;
+			    color: $text-sidebar;
+			    padding: 20px 18px;
+			    height: $header-height;
+			    display: block;
+			    float: left;
+
+				&:hover {
+					//color: #b4bcc8;
+					border-bottom: solid 4px $main-color;
+				}
+				&:focus{
+					background-color: #f5f5f5;
+          border-bottom: solid 4px $main-color;
+				}
+			}
+		}
+	}
+}

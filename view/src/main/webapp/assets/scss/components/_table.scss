@@ -1,0 +1,104 @@
+.table {
+	background-color: #FFF;
+	font-size: 12px;
+
+	@media (min-width: $screen-tablet-min) {
+		font-size: 14px;
+	}
+
+	thead {
+		text-transform: uppercase;
+
+		th {
+			border-top: 1px solid #f0f4fa !important;
+
+			&:first-child {
+				border-top-left-radius: 4px;
+			}
+
+			&:last-child {
+				border-top-right-radius: 4px;
+			}
+			a {
+				font-weight: bolder;
+				text-decoration: none;
+				i {
+					font-weight: bolder;
+				}
+			}
+		}
+	}
+
+	&.table-hover {
+		tbody {
+			tr {
+				transition: background-color ease 0.2s, color ease 0.2s;
+
+				&:hover {
+					background-color: #eee;
+				}
+			}
+		}
+	}
+
+	&.table-striped.table-hover > tbody > tr:nth-of-type(odd) {
+		background-color: #f4f4f4;
+
+		&:hover {
+			background-color: #eee;
+		}
+	}
+
+	tr {
+		td,
+		th {
+			vertical-align: middle !important;
+			color: #4c4c4c;
+
+			&:first-child {
+				padding-left: 16px;
+
+				@media (min-width: $screen-tablet-min) {
+					padding-left: 24px;
+
+					&.td-icon {
+						padding-left: 44px;
+					}
+				}
+			}
+
+			&:last-child {
+				padding-right: 16px;
+
+				@media (min-width: $screen-tablet-min) {
+					padding-right: 24px;
+				}
+			}
+		}
+	}
+
+	.table-border-all {
+	    border: 1px solid #eee;
+	}
+}
+
+.table-cursor {
+	tbody {
+		tr {
+			cursor: pointer;
+		}
+	}
+}
+
+.table {
+	> tbody,
+	> tfoot {
+		> tr {
+			> td,
+			> th {
+				padding: 12px 8px;
+				border: none;
+			}
+		}
+	}
+}

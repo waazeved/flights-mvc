@@ -1,0 +1,33 @@
+{
+    "name": "bower-dependency-configuration",
+    "version": "1.0.0",
+    "dependencies": {
+        "angular": "latest",
+        "angularAMD": "latest",
+        "lodash": "latest",
+        "requirejs": "latest",
+        "angular-translate": "latest",
+        "angular-ui-router": "latest",
+        "angular-bootstrap": "latest",
+        "requirejs-domready": "latest",
+        "jquery": "latest",
+        "bootstrap": "latest",
+        "ng-file-upload": "latest",
+        "angular-animate": "latest",
+        "ng-idle": "latest",
+        "angular-i18n": "latest",
+        "angular-dynamic-locale": "latest",
+        "angular-toastr": "latest",
+        "components-font-awesome": "latest",
+        "angular-route": "latest",
+        "angular-sanitize": "latest",
+        "angular-acl": "latest",
+        "moment": "latest",
+        "angular-http-loader": "latest",
+        "DataTables": "latest",
+        "chosen": "latest"
+    },
+    "resolutions": {
+        "angular": "latest"
+    }
+}

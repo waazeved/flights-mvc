@@ -1,0 +1,54 @@
+// SELECT2
+.select2-container--default {
+	.select2-selection--single {
+		font-size: 14px;
+		border-color: #E6E6E6;
+		border-width: 2px;
+		border-radius: 20px;
+		padding: 0px 6px;
+		height: 34px;
+
+		&:focus {
+			outline: none;
+		}
+
+		.select2-selection__arrow {
+			height: 32px;
+			top: 1px;
+			right: 6px;
+			width: 20px;
+
+			b {
+				transition: border 0.2s ease;
+			}
+		}
+	}
+	.select2-search--dropdown {
+		.select2-search__field {
+			border-color: #E6E6E6;
+			border-width: 2px;
+			padding: 6px 12px;
+			height: 34px;
+			border-radius: 20px;
+			width: 96%;
+			margin: 4px auto;
+			display: block;
+			transition: border 0.2s ease;
+
+			&:focus {
+				outline: none;
+				border-color: #539acb;
+			}
+		}
+	}
+
+	.select2-results__option--highlighted {
+		&[aria-selected] {
+			background-color: #337ab7;
+		}
+	}
+}
+
+.select2-container {
+	width: 100% !important;
+}

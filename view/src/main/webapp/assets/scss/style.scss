@@ -1,0 +1,105 @@
+@import "helpers/mixins";
+@import "helpers/var-media-queries";
+@import "helpers/var-general";
+@import "helpers/colors";
+
+// General
+@import "components/general";
+@import "components/header";
+@import "components/sidebar";
+@import "components/card";
+@import "components/search";
+@import "components/loading";
+
+
+// Components Theme
+@import "components/table";
+@import "components/btn";
+@import "components/select2";
+@import "components/checkbox";
+@import "components/summary";
+@import "components/list-select";
+@import "helpers/utilities";
+
+
+.notification {
+	font-size: 12px;
+	color: #FFF;
+	position: absolute;
+	background-color: #d9534f;
+	padding: 1px 5px;
+	border-radius: 10px;
+	line-height: normal;
+	height: 18px;
+	width: 18px;
+	right: 24px;
+	top: 10px;
+	text-align: center;
+	font-weight: normal;
+}
+
+.contingency {
+	color: red
+}
+
+.d-block {
+	display: block;
+}
+
+.title-for-btn {
+	padding: 10px 0;
+	float: left;
+}
+
+.danger {
+	border: 1px solid #ea0419 !important;
+}
+
+.ng-invalid-maxlength {
+	border: 1px solid #ea0419 !important;
+}
+
+.pg-machine .card-description {
+	min-height: 32px;
+}
+
+.pg-single-machine .title-integration {
+	margin: 8px 0 4px 24px;
+	display: block;
+}
+
+.title-field {
+	color: #666;
+	margin: 12px 0 6px;
+	display: block;
+}
+
+.pg-log {
+	.card {
+		overflow: inherit;
+		border: 4px solid #FFF;
+		.card-body {
+			padding: 20px;
+		}
+		.card-info-name {
+			width: 60px;
+		}
+	}
+}
+
+.fixed-action-btn {
+	position: fixed;
+	right: 23px;
+	bottom: 23px;
+	padding-top: 15px;
+	margin-bottom: 0;
+	z-index: 998;
+	.btn {
+		font-size: 20px;
+		width: 56px;
+		height: 56px;
+		line-height: 56px;
+		border-radius: 50%;
+		padding: 0;
+	}
+}

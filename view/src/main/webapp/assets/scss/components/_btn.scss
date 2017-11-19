@@ -1,0 +1,84 @@
+.btn {
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-width: 2px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  // COLORS
+  &.btn-success {
+    border-color: #5cb85c;
+    &:hover {
+      background-color: #FFF;
+      color: #5cb85c;
+    }
+  }
+  &.btn-primary {
+    background-color: #e67e22;
+    border-color: #e67e22;
+    &:hover {
+      background-color: #FFF;
+      color: #e67e22;
+    }
+    &.active {
+      border-color: #e67e22;
+    }
+  }
+  // END - COLORS
+  // STATES
+  &:active,
+  &:focus {
+    outline: none !important;
+  }
+  // END - STATES
+  &.btn-icon {
+    i {
+      padding-right: 6px;
+    }
+  }
+  // BTN WIDTH
+  &.btn-lg {
+    font-size: 16px;
+    padding: 8px 16px;
+    &.btn-icon {
+      i {
+        padding-right: 10px;
+      }
+    }
+  }
+  // END - BTN WIDTH
+  &.btn-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 44px;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    // color: #5e5e5e;
+    border: none;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    i {
+      padding: 0;
+    }
+  }
+}
+
+.btn-action .btn + .btn {
+  margin-left: 14px;
+}
+
+.btn-add {
+  position: absolute;
+  right: 16px;
+  top: -5px;
+  @media(min-width: $screen-tablet-min) {
+    top: 4px;
+  }
+}
+
+.btn-radio > input[type=radio] {
+  position       : absolute;
+  clip           : rect(0, 0, 0, 0);
+  pointer-events : none;
+}
