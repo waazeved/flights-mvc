@@ -34,6 +34,12 @@ public class Flight {
 	@Column(name = "FLIGHT_CODE")
 	private String code;
 
+	@Column(name = "DEPARTURE_CITY")
+	private String departureCity;
+
+	@Column(name = "ARRRIVAL_CITY")
+	private String arrivalCity;
+
 	@Column(name = "FLIGHT_START")
 	private LocalDateTime start;
 

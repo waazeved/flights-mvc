@@ -2,9 +2,9 @@ package br.com.embraer.flights.business.service.impl;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.UnexpectedRollbackException;
 
 import br.com.embraer.flights.business.dto.AirplaneDto;
 import br.com.embraer.flights.business.dto.convert.AirplaneDtoConverter;
@@ -55,7 +55,7 @@ public class AirplaneService extends AbstractDataService<Airplane, Long> impleme
 
 		try {
 			this.save(airplane);
-		} catch (UnexpectedRollbackException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new NameIsAlreadyInUseException("This airplane's name is already in use.");
 		} catch (Exception e) {
 			e.printStackTrace();

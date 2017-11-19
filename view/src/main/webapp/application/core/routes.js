@@ -65,7 +65,7 @@ define(['app'], function (app) {
 				.state('pilot', {
 					url : '/pilot',
 					templateUrl: "application/views/pilot/pilot.html",
-					controller: "FlightListCtrl",
+					controller: "PilotCtrl",
 					parent: "master",
 					data: {
 		            	requireLogin: false

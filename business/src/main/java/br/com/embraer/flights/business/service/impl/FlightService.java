@@ -8,11 +8,11 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.UnexpectedRollbackException;
 
 import br.com.embraer.flights.business.dto.FlightDto;
 import br.com.embraer.flights.business.dto.convert.FlightDtoConverter;
@@ -100,7 +100,7 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 		Flight flight = this.converter.toFlight(flightDto);
 		try {
 			this.save(flight);
-		} catch (UnexpectedRollbackException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new CodeIsAlreadyInUseException("This airplane code is already in use.");
 		} catch (Exception e) {
 			throw new FlightException("Error saving new flight.");

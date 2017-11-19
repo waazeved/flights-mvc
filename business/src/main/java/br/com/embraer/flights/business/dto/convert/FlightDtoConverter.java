@@ -28,6 +28,8 @@ public class FlightDtoConverter extends DtoConverter<Flight, FlightDto> {
 		dto.setStatus(flight.getStatus().name());
 		dto.setAirplaneName(flight.getAirplane().getName());
 		dto.setPilotName(flight.getPilot().getName());
+		dto.setArrivalCity(flight.getArrivalCity());
+		dto.setDepartureCity(flight.getDepartureCity());
 		return dto;
 	}
 
@@ -41,6 +43,8 @@ public class FlightDtoConverter extends DtoConverter<Flight, FlightDto> {
 		flight.setStart(DateTimeUtils.toLocalDateTime(dto.getStart()));
 		flight.setEnd(DateTimeUtils.toLocalDateTime(dto.getEnd()));
 		flight.setStatus(FlightStatusEnum.valueOf(dto.getStatus()));
+		flight.setDepartureCity(dto.getDepartureCity());
+		flight.setArrivalCity(dto.getArrivalCity());
 		Pilot pilot = new Pilot();
 		pilot.setId(dto.getPilotId());
 		flight.setPilot(pilot);
