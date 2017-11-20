@@ -14,7 +14,7 @@ define([ 'app' ], function(app) {
 		$scope.save = function(){
 
 			if(_.isEmpty($scope.pilot.name)){
-				commonsService.error('Name can not be empty.');
+				commonsService.warning('Name can not be empty.');
 			}
 			else{
 
@@ -30,6 +30,7 @@ define([ 'app' ], function(app) {
 
 				}).catch(function(data, status, headers, config){
 			    	console.log(data);
+			    	commonsService.error('Error saving pilot!');
 			    });
 			 }
 

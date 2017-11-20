@@ -1,6 +1,8 @@
 
 package br.com.embraer.flights.view.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,11 @@ public class AirplaneController {
 			} catch (NameIsAlreadyInUseException | FlightException e) {
 				return Response.exception(e);
 			}
+	}
+
+	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
+	public List<AirplaneDto> findAll(){
+		return this.airplaneService.findAllDto();
 	}
 
 }

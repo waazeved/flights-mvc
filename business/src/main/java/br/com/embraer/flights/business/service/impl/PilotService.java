@@ -1,5 +1,7 @@
 package br.com.embraer.flights.business.service.impl;
 
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,6 +25,12 @@ public class PilotService extends AbstractDataService<Pilot, Long> implements IP
 	@Override
 	public JpaRepository<Pilot, Long> getRepository() {
 		return this.pilotRepository;
+	}
+
+	@Override
+	public List<PilotDto> findAllDto(){
+		List<Pilot> pilots = this.findAll();
+		return this.converter.toDtoList(pilots);
 	}
 
 	@Override

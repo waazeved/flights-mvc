@@ -14,12 +14,18 @@ define(['./module'], function (services) {
             	pilot: {
             		save: function(pilot) {
             			return rest.post(BASE_PATH + 'pilot/save',pilot);
-            		}
+            		},
+            		findAll: function() {
+            			return rest.get(BASE_PATH + 'pilot/findAll');
+            		},
             	},
             	airplane: {
             		save: function(airplane) {
             			return rest.post(BASE_PATH + 'airplane/save',airplane);
-            		}
+            		},
+            		findAll: function() {
+            			return rest.get(BASE_PATH + 'airplane/findAll');
+            		},
             	},
 
             };

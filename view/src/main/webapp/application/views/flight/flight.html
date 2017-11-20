@@ -15,6 +15,94 @@
 		</div>
 	</div>
 
+	<div class="row" style="padding-top: 15px;">
+		<div class="col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon" id="code">* Departure City
+				</span> <input type="text" class="form-control"	placeholder="Departure City" ng-model="flight.departureCity">
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="padding-top: 15px;">
+		<div class="col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon" id="code">* Arrival City
+				</span> <input type="text" class="form-control"	placeholder="Arrrival City" ng-model="flight.arrivalCity">
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="padding-top: 15px;">
+		<div class="col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon" id="code">* Start Date Time
+				</span> <input type="text" class="form-control"	placeholder="yyy-MM-dd HH:mm" ng-model="flight.start">
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="padding-top: 15px;">
+		<div class="col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon" id="code">* End Date Time
+				</span> <input type="text" class="form-control"	placeholder="yyy-MM-dd HH:mm" ng-model="flight.end">
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="padding-top: 15px;">
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">
+						* Status
+					</span>
+
+					<select class="form-control" ng-model="flight.status">
+						<option value="PENDING_CONFIRMATION" selected >Pending Confirmation</option>
+						<option value="CONFIRMED">Confirmed</option>
+						<option value="CALNCELED">Canceled</option>
+						<option value="FLYING">Flying</option>
+					</select>
+
+			    </div>
+			</div>
+	 </div>
+
+	 <div class="row" style="padding-top: 15px;">
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">
+						* Airplane
+					</span>
+
+					<select class="form-control" ng-change="chooseAirplane()" ng-options="a as a.name for a in airplanes track by a.id" ng-model="airplane">
+
+						<option value=""></option>
+
+					</select>
+
+			    </div>
+			</div>
+	</div>
+
+	<div class="row" style="padding-top: 15px;">
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">
+						* Pilot
+					</span>
+
+					<select class="form-control" ng-change="choosePilot()" ng-options="p as p.name for p in pilots track by p.id" ng-model="pilot">
+
+						<option value=""></option>
+
+					</select>
+
+			    </div>
+			</div>
+	</div>
+
 
 	<div class="row"
 		style="padding-top: 10px; padding-bottom: 5px; width: 100%; display: inline-block; overflow: auto; white-space: nowrap; margin: 0px auto;">

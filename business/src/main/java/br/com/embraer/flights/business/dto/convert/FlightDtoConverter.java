@@ -49,7 +49,7 @@ public class FlightDtoConverter extends DtoConverter<Flight, FlightDto> {
 		pilot.setId(dto.getPilotId());
 		flight.setPilot(pilot);
 		Airplane airplane = new Airplane();
-		airplane.setId(dto.getId());
+		airplane.setId(dto.getAirplaneId());
 		flight.setAirplane(airplane);
 		return flight;
 	}

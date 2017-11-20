@@ -1,5 +1,7 @@
 package br.com.embraer.flights.business.service.impl;
 
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -27,6 +29,11 @@ public class AirplaneService extends AbstractDataService<Airplane, Long> impleme
 		return airplaneRepository;
 	}
 
+	@Override
+	public List<AirplaneDto> findAllDto(){
+		List<Airplane> airplane = this.findAll();
+		return this.converter.toDtoList(airplane);
+	}
 
 	@Override
 	public Airplane save(AirplaneDto dto) throws FlightException, NameIsAlreadyInUseException {

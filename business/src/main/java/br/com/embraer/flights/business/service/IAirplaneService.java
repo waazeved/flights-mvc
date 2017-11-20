@@ -1,5 +1,7 @@
 package br.com.embraer.flights.business.service;
 
+import java.util.List;
+
 import br.com.embraer.flights.business.dto.AirplaneDto;
 import br.com.embraer.flights.business.exception.FlightException;
 import br.com.embraer.flights.business.exception.NameIsAlreadyInUseException;
@@ -12,6 +14,8 @@ public interface IAirplaneService extends IDataService<Airplane, Long>{
 	Airplane create(AirplaneDto dto) throws FlightException, NameIsAlreadyInUseException;
 
 	Airplane edit(AirplaneDto dto) throws FlightException, NameIsAlreadyInUseException;
+
+	List<AirplaneDto> findAllDto();
 
 
 }
