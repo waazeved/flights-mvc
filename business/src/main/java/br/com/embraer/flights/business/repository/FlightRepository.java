@@ -21,4 +21,7 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 			+ "ORDER BY f.start DESC ")
 	List<Flight> findBySearchOrderByStart(@Param("search") String search, Pageable pageable);
 
+	@Query("SELECT f FROM Flight f ORDER BY f.start DESC ")
+	List<Flight> findAllOrdeByStart(Pageable pageable);
+
 }

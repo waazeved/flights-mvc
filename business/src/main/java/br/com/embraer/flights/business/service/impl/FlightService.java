@@ -38,6 +38,14 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 	}
 
 	@Override
+	public List<FlightDto> findAll(int index, int limit) {
+
+		Pageable pageable = new PageRequest(index, limit);
+		List<Flight> flights = this.flightRepository.findAllOrdeByStart(pageable);
+		return this.converter.toDtoList(flights);
+	}
+
+	@Override
 	public List<FlightDto> findBySearchAndIndexAndLimitOrderByStart(String search, int index, int limit) {
 
 		try {
@@ -45,10 +53,6 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			LOGGER.error(e.getMessage());
-		}
-
-		if (search == null || search.equals("*")) {
-			search = "";
 		}
 
 		search = search.toLowerCase().trim();
@@ -73,8 +77,30 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 	@Override
 	public Flight create(FlightDto flightDto) throws CodeIsAlreadyInUseException, FlightException {
 
+		flightDtoValidations(flightDto);
+
+		Flight flight = this.converter.toFlight(flightDto);
+		try {
+			this.save(flight);
+		} catch (DataIntegrityViolationException e) {
+			throw new CodeIsAlreadyInUseException("This airplane code is already in use.");
+		} catch (Exception e) {
+			throw new FlightException("Error saving new flight.");
+		}
+		return flight;
+
+	}
+
+
+	@Override
+	public Flight edit(FlightDto flightDto) throws CodeIsAlreadyInUseException, FlightException {
+		//TODO Create the method to edit a flight
+		return null;
+	}
+
+	private void flightDtoValidations(FlightDto flightDto) throws FlightException {
 		if(flightDto == null){
-			throw new FlightException("Empty data is not allowed");
+			throw new FlightException("flightDto can't be null");
 		}
 
 		if(StringUtils.isEmpty(flightDto.getCode())){
@@ -89,6 +115,18 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 			throw new FlightException("Empty flight end dateTime is not allowed");
 		}
 
+		if(StringUtils.isEmpty(flightDto.getStatus())){
+			throw new FlightException("Empty status is not allowed");
+		}
+
+		if(StringUtils.isEmpty(flightDto.getDepartureCity())){
+			throw new FlightException("Empty departure city is not allowed");
+		}
+
+		if(StringUtils.isEmpty(flightDto.getArrivalCity())){
+			throw new FlightException("Empty arrival city is not allowed");
+		}
+
 		if(flightDto.getAirplaneId() == null){
 			throw new FlightException("Airplane id can't be null");
 		}
@@ -96,26 +134,7 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 		if(flightDto.getPilotId() == null){
 			throw new FlightException("Pilot id can't be null");
 		}
-
-		Flight flight = this.converter.toFlight(flightDto);
-		try {
-			this.save(flight);
-		} catch (DataIntegrityViolationException e) {
-			throw new CodeIsAlreadyInUseException("This airplane code is already in use.");
-		} catch (Exception e) {
-			throw new FlightException("Error saving new flight.");
-		}
-		return flight;
-
-
 	}
-
-	@Override
-	public Flight edit(FlightDto flightDto) throws CodeIsAlreadyInUseException, FlightException {
-		//TODO Create the method to edit a flight
-		return null;
-	}
-
 
 
 

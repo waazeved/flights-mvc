@@ -17,4 +17,6 @@ public interface IFlightService extends IDataService<Flight, Long> {
 	Flight edit(FlightDto flightDto) throws CodeIsAlreadyInUseException, FlightException;
 
 	Flight save(FlightDto dto) throws FlightException, CodeIsAlreadyInUseException;
+
+	List<FlightDto> findAll(int index, int limit);
 }
