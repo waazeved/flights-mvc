@@ -7,6 +7,9 @@ define(['./module'], function (services) {
             		search: function(search, index, limit) {
             			return rest.get(BASE_PATH + 'flight/search/' + search + '/' + index + "/" + limit);
             		},
+            		findAll: function(index, limit) {
+            			return rest.get(BASE_PATH + 'flight/findAll/' + index + "/" + limit);
+            		},
             		save: function(flight) {
             			return rest.post(BASE_PATH + 'flight/save',flight);
             		}

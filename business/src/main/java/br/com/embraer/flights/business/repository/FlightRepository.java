@@ -17,7 +17,8 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 			+ "WHERE ( LOWER(f.code) LIKE %:search% "
 			+ "OR LOWER(f.pilot.name) LIKE %:search% "
 			+ "OR LOWER(f.airplane.name) LIKE %:search% "
-			+ "OR LOWER(f.status) LIKE %:search% ) "
+			+ "OR LOWER(f.departureCity) LIKE %:search% "
+			+ "OR LOWER(f.arrivalCity) LIKE %:search% ) "
 			+ "ORDER BY f.start DESC ")
 	List<Flight> findBySearchOrderByStart(@Param("search") String search, Pageable pageable);
 

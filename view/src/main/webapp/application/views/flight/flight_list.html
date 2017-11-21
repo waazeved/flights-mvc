@@ -11,16 +11,84 @@
 		<div class="col-md-12">
 				<input type="text" class="form-control"
 					placeholder="Search"
+					ng-model="search"
+					ng-keyup="changeSearch()"
 					style="-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;"/>
 		</div>
 
 	</div>
 
+
+	<div class="row col-md-12" style="text-align:center;padding-top: 5em;" ng-show="flightsPagList.length == 0">
+		<strong>No flights found.</strong>
+	</div>
+
+
+	<div class="row col-md-12" style="padding-top: 15px;" ng-show="flightsPagList.length > 0">
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th style="text-align: center;">Code</th>
+						<th style="text-align: center;">Start</th>
+						<th style="text-align: center;">End</th>
+						<th style="text-align: center;">Departure City</th>
+						<th style="text-align: center;">Arrival City</th>
+						<th style="text-align: center;">Status</th>
+						<th style="text-align: center;">Pilot</th>
+						<th style="text-align: center;">Airplane</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="flight in flightsPagList track by $index">
+						<td style="text-align: center;">{{flight.code}}</td>
+						<td style="text-align: center;">{{flight.start}}</td>
+						<td style="text-align: center;">{{flight.end}}</td>
+						<td style="
+							text-align: center;
+							max-width: 200px;
+						    overflow: hidden;
+						    text-overflow: ellipsis;
+						    white-space: nowrap;">
+						    	{{flight.departureCity}}
+						</td>
+						<td style="
+							text-align: center;
+							max-width: 200px;
+						    overflow: hidden;
+						    text-overflow: ellipsis;
+						    white-space: nowrap;">
+						    	{{flight.arrivalCity}}
+						</td>
+						<td style="text-align: center;">{{flight.status}}</td>
+						<td style="
+							text-align: center;
+							max-width: 200px;
+						    overflow: hidden;
+						    text-overflow: ellipsis;
+						    white-space: nowrap;">
+						    	{{flight.pilotName}}
+						</td>
+						<td style="text-align: center;
+							max-width: 200px;
+						    overflow: hidden;
+						    text-overflow: ellipsis;
+						    white-space: nowrap;">
+						    	{{flight.airplaneName}}
+						 </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
 	<div class="row"
 		style="text-align:center;margin-top: 10px; margin-bottom: 10px; margin-left:auto; margin-right:auto'">
 		<div class="col-md-12">
 			<button type="button" id="btn-save" class="btn  btn-default"
-				>
+				ng-click="list()" ng-show="showLoadMoreButton">>
 				Load More
 			</button>
 		</div>

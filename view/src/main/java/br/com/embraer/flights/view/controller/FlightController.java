@@ -31,6 +31,11 @@ public class FlightController {
 		return this.flightService.findBySearchAndIndexAndLimitOrderByStart(search, index, limit);
 	}
 
+	@RequestMapping(value = "/findAll/{index}/{limit}", method = RequestMethod.GET)
+	public List<FlightDto> search(@PathVariable("index") int index, @PathVariable("limit") int limit){
+		return this.flightService.findAll(index, limit);
+	}
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public Response save(@RequestBody FlightDto flightDto){
 			try {
