@@ -54,22 +54,20 @@ public class AirplaneService extends AbstractDataService<Airplane, Long> impleme
 			throw new FlightException("Empty data is not allowed");
 		}
 
-		if(StringUtils.isEmpty(dto.getName())){
+		if(StringUtils.isEmpty(dto.getName()) || dto.getName().trim().isEmpty()){
 			throw new FlightException("Empty airplane's name is not allowed");
 		}
 
 		Airplane airplane = this.converter.toAirplane(dto);
 
 		try {
-			this.save(airplane);
+			return this.save(airplane);
 		} catch (DataIntegrityViolationException e) {
 			throw new NameIsAlreadyInUseException("This airplane's name is already in use.");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new FlightException("Error saving new airplane.");
 		}
-
-		return airplane;
 
 	}
 

@@ -52,20 +52,18 @@ public class PilotService extends AbstractDataService<Pilot, Long> implements IP
 			throw new FlightException("Empty data is not allowed");
 		}
 
-		if(StringUtils.isEmpty(dto.getName())){
+		if(StringUtils.isEmpty(dto.getName()) || dto.getName().trim().isEmpty()){
 			throw new FlightException("Empty pilot's name is not allowed");
 		}
 
 		Pilot pilot = this.converter.toPilot(dto);
 
 		try {
-			this.save(pilot);
+			return this.save(pilot);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new FlightException("Error saving new pilot.");
 		}
-
-		return pilot;
 
 	}
 

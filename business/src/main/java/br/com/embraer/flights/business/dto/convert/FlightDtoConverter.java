@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import br.com.embraer.flights.business.dto.FlightDto;
+import br.com.embraer.flights.business.utils.DateTimeUtils;
 import br.com.embraer.flights.model.entities.Airplane;
 import br.com.embraer.flights.model.entities.Flight;
 import br.com.embraer.flights.model.entities.Pilot;
 import br.com.embraer.flights.model.entities.enums.FlightStatusEnum;
-import br.com.embraer.flights.model.entities.utils.DateTimeUtils;
 
 @Component
 public class FlightDtoConverter extends DtoConverter<Flight, FlightDto> {

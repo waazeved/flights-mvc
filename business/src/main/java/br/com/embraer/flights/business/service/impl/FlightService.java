@@ -81,14 +81,12 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 
 		Flight flight = this.converter.toFlight(flightDto);
 		try {
-			this.save(flight);
+			return this.save(flight);
 		} catch (DataIntegrityViolationException e) {
 			throw new CodeIsAlreadyInUseException("This airplane code is already in use.");
 		} catch (Exception e) {
 			throw new FlightException("Error saving new flight.");
 		}
-		return flight;
-
 	}
 
 
@@ -103,7 +101,7 @@ public class FlightService extends AbstractDataService<Flight, Long> implements 
 			throw new FlightException("flightDto can't be null");
 		}
 
-		if(StringUtils.isEmpty(flightDto.getCode())){
+		if(StringUtils.isEmpty(flightDto.getCode()) || flightDto.getCode().trim().isEmpty()){
 			throw new FlightException("Empty flight code is not allowed");
 		}
 

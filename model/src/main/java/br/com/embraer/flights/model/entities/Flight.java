@@ -15,7 +15,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import br.com.embraer.flights.model.entities.enums.FlightStatusEnum;
-import br.com.embraer.flights.model.entities.utils.DateTimeUtils;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -57,13 +56,5 @@ public class Flight {
 	@ManyToOne
 	@JoinColumn(name = "FLIGHT_AIRPLANE_ID", referencedColumnName = "AIRPLANE_ID")
 	private Airplane airplane;
-
-	public String getStartFormattedDateTime() {
-		return DateTimeUtils.toFormattedDateTime(this.start);
-	}
-
-	public String getEndFormattedDateTime() {
-		return DateTimeUtils.toFormattedDateTime(this.end);
-	}
 
 }

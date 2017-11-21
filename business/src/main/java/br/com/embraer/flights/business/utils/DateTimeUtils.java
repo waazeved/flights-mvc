@@ -1,4 +1,4 @@
-package br.com.embraer.flights.model.entities.utils;
+package br.com.embraer.flights.business.utils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

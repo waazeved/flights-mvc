@@ -14,8 +14,8 @@ public class FlightDto {
 	private String status;
 	private String pilotName;
 	private String airplaneName;
-	private Integer pilotId;
-	private Integer airplaneId;
+	private Long pilotId;
+	private Long airplaneId;
 
 
 }
